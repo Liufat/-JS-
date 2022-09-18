@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密碼審核</title>
+</head>
+
+<body>
+    <label>請輸入密碼：<input type="text" id="passwordInput"></label>
+    <button id="btnInput">開始比對</button>
+    <ul>您的密碼須符合以下條件：
+        <li>不能為空白</li>
+        <li>最少8個字元</li>
+        <li>需要有大小寫英文字母</li>
+        <li>至少要有一個數字</li>
+        <li>至少要有一個特殊字元</li>
+    </ul>
+
+    <script>
+        let password;
+        let btn = document.querySelector("#btnInput");
+        function passwordCheck(password) {
+            return /(?!=.*^\s)(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*\d+)(?=.*\W+)/.test(password)
+        }
+        // let result = passwordCheck("aA#456789")
+        // console.log(result)
+        btn.addEventListener("click",()=>{
+            password = document.querySelector("#passwordInput").value
+            // console.log(password)
+            let result = passwordCheck(password)
+            if (result == true) {
+                window.alert("密碼驗證成功！");
+            } else {
+                window.alert("密碼驗證失敗，請重新輸入！");
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

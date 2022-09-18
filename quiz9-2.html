@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>address</title>
+</head>
+
+<body>
+    <select name="" id="select1" data-val="桃園市"></select>
+    <select name="" id="selectAreas" data-val="八德區"></select>
+    <select name="" id="selectRoads" data-val="大同路"></select>
+
+    <script src="./function/49.address.js"></script>
+    <script src="./function/functionQuiz9.js"></script>
+    <script>
+        let sel = document.querySelector("#select1");
+        let selAreas = document.querySelector("#selectAreas");
+        let selRoads = document.querySelector("#selectRoads");
+        let city;
+        let areas;
+        let roads;
+
+        ADDRESS.forEach((value, index, array) => {
+            sel[index] = new Option(value.CityName, value.CityName);
+        })
+        
+        citySelect()
+        sel.addEventListener("change", () => {
+            selAreas.options.length = 0;
+            citySelect()
+            
+        })
+            areaSelect()
+        selAreas.addEventListener("change", () => {
+            selRoads.options.length = 0;
+            areaSelect()
+        })
+
+
+    </script>
+</body>
+
+</html>

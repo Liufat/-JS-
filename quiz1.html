@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI
+    </title>
+</head>
+<body>
+    <label>請輸入身高：<input type='text' id="hight"></label>
+    <label>請輸入體重：<input type='text' id="weight"></label>
+    <button id="button">確認</button>
+    <div id="result"></div>
+    <script>
+        button.addEventListener('click', function () {
+            const Weight = Number(weight.value);
+            const Hight = Number(hight.value);
+            // console.log(Weight);
+            // console.log(Hight);
+            let BMI = Math.floor((Weight / (Hight / 100) ** 2) * 10) / 10;
+            const theResult = document.getElementById('result')
+            // console.log(typeof BMI);
+            if (BMI < 18.5) {
+                theResult.textContent = (`您的BMI是${BMI}，您是過輕體型`);
+            } else if (18.5 <= BMI && BMI < 24) {
+                theResult.textContent = (`您的BMI是${BMI}，您是正常體型`);
+            } else if (24 <= BMI && BMI < 27) {
+                theResult.textContent = (`您的BMI是${BMI}，您是過重體型`);
+            } else if (27 <= BMI && BMI < 30) {
+                theResult.textContent = (`您的BMI是${BMI}，您是輕度肥胖體型`);
+            } else if (30 <= BMI && BMI < 35) {
+                theResult.textContent = (`您的BMI是${BMI}，您是中度肥胖體型`);
+            } else if (BMI >= 35) {
+                theResult.textContent = (`您的BMI是${BMI}，您是重度肥胖體型`);
+            } else {
+                theResult.textContent = ('您似乎忘記輸入數字了，請記得輸入數字');
+            }
+        })
+
+    </script>
+</body>
+</html>
